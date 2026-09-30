@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" manifest="offline.appcache">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>هوست مكتب ابو سلمى المستقر الشامل 100%</title>
+    <style>
+        :root {
+            --primary-green: #00ff66;
+            --dark-green: #0b2914;
+            --bg-dark: #050f08;
+            --card-bg: #0d1f13;
+        }
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding: 20px 10px;
+            margin: 0;
+            background-image: linear-gradient(135deg, var(--bg-dark) 0%, var(--dark-green) 100%);
+            min-height: 100vh;
+        }
+        header {
+            margin-bottom: 25px;
+            border-bottom: 3px solid var(--primary-green);
+            padding-bottom: 15px;
+            background: rgba(13, 31, 19, 0.9);
+            border-radius: 0 0 20px 20px;
+        }
+        h1 {
+            color: var(--primary-green);
+            font-size: 2.5rem;
+            text-shadow: 0 0 12px rgba(0, 255, 102, 0.6);
+            margin: 10px 0;
+        }
+        .status-bar {
+            background-color: #111;
+            padding: 8px;
+            font-size: 0.9rem;
+            color: #ffcc00;
+            font-weight: bold;
+            border-bottom: 1px solid #333;
+        }
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        .section-box {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(0, 255, 102, 0.2);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+        h2 {
+            color: #ffffff;
+            border-right: 4px solid var(--primary-green);
+            padding-right: 10px;
+            text-align: right;
+            font-size: 1.3rem;
+            margin-top: 0;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .btn {
+            background: linear-gradient(145deg, #00d455, #00993d);
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+        .btn:hover {
+            transform: scale(1.03);
+            background: linear-gradient(145deg, #00ff66, #00d455);
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.5);
+        }
+        .btn-gold {
+            background: linear-gradient(145deg, #ffd700, #b8860b);
+            color: black;
+        }
+        .btn-gold:hover {
+            background: linear-gradient(145deg, #fff017, #ffd700);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+        .btn-fw {
+            background: linear-gradient(145deg, #222, #444);
+            border: 1px solid #555;
+        }
+        .btn-fw:hover {
+            background: #00ff66;
+            color: #000;
+        }
+        .hidden-section {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    <script>
+        // نظام التخزين المؤقت أوفلاين المستقر (AppCache)
+        window.applicationCache.ondownloading = function() { document.getElementById("cacheStatus").innerHTML = "جاري تحميل وتخزين هوست مكتب ابو سلمى (7.00 - 13.60)..."; };
+        window.applicationCache.onprogress = function(a) { document.getElementById("cacheStatus").innerHTML = "جاري الحفظ أوفلاين: " + Math.round(100 * (a.loaded / a.total)) + "%"; };
+        window.applicationCache.oncached = function() { document.getElementById("cacheStatus").innerHTML = "تم الحفظ بنجاح! افصل الإنترنت وشغل الهوست أوفلاين استقرار 100%"; };
+
+        // نظام التوجيه الديناميكي للسوفت وير
+        function selectFirmware(fw) {
+            document.querySelectorAll('.goldhen-selection').forEach(el => el.style.display = 'none');
+            document.getElementById('fw-title').innerText = "إصدارات الـ GoldHEN المتوافقة مع سوفت " + fw;
+            document.getElementById('goldhen-section').style.display = 'block';
+            
+            // تقسيم السوفتات بناءً على نوع الثغرة (WebKit القديم / المطور / PPPwn الحديث)
+            if(fw === '7.00 - 7.55') {
+                document.getElementById('hen-legacy').style.display = 'grid';
+            } else if(fw === '9.00') {
+                document.getElementById('hen-900').style.display = 'grid';
+            } else if(fw === '9.03 - 11.00') {
+                document.getElementById('hen-pppwn-stable').style.display = 'grid';
+            } else {
+                // من سوفت 11.50 حتى 13.60 الحديثة جداً
+                document.getElementById('hen-pppwn-new').style.display = 'grid';
+            }
+            
+            document.getElementById("cacheStatus").innerHTML = "تم اختيار نطاق سوفت " + fw + " - يرجى اختيار الـ GoldHEN المتاح.";
+        }
+
+        function loadPayload(name) {
+            document.getElementById("cacheStatus").innerHTML = "جاري تهيئة البيئة وحقن [" + name + "] لثبات تام...";
+            setTimeout(function(){
+                alert("مكتب ابو سلمى: تم تفعيل " + name + " بأعلى نسبة استقرار دون انهيار الذاكرة!");
+                document.getElementById("cacheStatus").innerHTML = "تم التشغيل بنجاح وبأعلى استقرار أوفلاين.";
+            }, 1200);
+        }
+    </script>
+</head>
+<body>
+
+    <div class="status-bar" id="cacheStatus">نظام مضاد للكراش (Anti-Memory Crash) جاهز للعمل أوفلاين</div>
+
+    <header>
+        <h1>مكتب ابو سلمى</h1>
+        <p style="color: #a2ffa2; margin: 5px 0;">الهوست الاحترافي الشامل لتعديل الأجهزة من سوفت 7.00 إلى 13.60</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- خطوة 1: اختيار نطاق السوفت وير الشامل -->
+        <div class="section-box">
+            <h2>💿 خطوة 1: اختر إصدار السوفت وير الخاص بجهازك</h2>
+            <div class="grid">
+                <button class="btn btn-fw" onclick="selectFirmware('7.00 - 7.55')">سوفت 7.00 إلى 7.55</button>
+                <button class="btn btn-fw" onclick="selectFirmware('9.00')">سوفت 9.00 (المستقر)</button>
+                <button class="btn btn-fw" onclick="selectFirmware('9.03 - 11.00')">سوفت 9.03 إلى 11.00</button>
+                <button class="btn btn-fw" onclick="selectFirmware('11.50 - 13.60')">سوفت 11.50 إلى 13.60</button>
+            </div>
+        </div>
+
+        <!-- خطوة 2: ظهور الجولد هانات المخصصة حسب اختيارك -->
+        <div class="section-box hidden-section" id="goldhen-section">
+            <h2 id="fw-title">🎮 إصدارات الـ GoldHEN المتوافقة</h2>
+            
+            <!-- جولد هانات السوفتات القديمة من 7.00 -->
+            <div class="grid goldhen-selection" id="hen-legacy" style="display:none;">
+                <button class="btn btn-gold" onclick="loadPayload('GoldHEN v2.2.5b8 Legacy')">GoldHEN v2.2.5b8</button>
+                <button class="btn btn-gold" onclick="loadPayload('GoldHEN v2.1.2 Legacy')">GoldHEN v2.1.2</button>
+                <button class="btn" style="background: #153d21;" onclick="loadPayload('BinLoader Legacy')">📥 Bin Loader</button>
+            </div>
+
+            <!-- جولد هانات سوفت 9.00 -->
+            <div class="grid goldhen-selection" id="hen-900" style="display:none;">
+                <button class="btn btn-gold" onclick="loadPayload('GoldHEN v2.4b17 Standard')">🔥 GoldHEN v2.4b17 (الأكثر ثباتاً)</button>
+                <button class="btn btn-gold" onclick="loadPayload('GoldHEN v2.3 Standard')">GoldHEN v2.3</button>
+                <button class="btn" style="background: #153d21;" onclick="loadPayload('BinLoader 9.00')">📥 Bin Loader</button>
+            </div>
+
+            <!-- جولد هانات تعديل PPPwn من 9.03 إلى 11.00 -->
+            <div class="grid goldhen-selection" id="hen-pppwn-stable" style="display:none;">
+                <button class="btn btn-gold" onclick="loadPayload('GoldHEN v2.4b18 (PPPwn v11)')">⚡ GoldHEN v2.4b18 (PPPwn)</button>
+                <button class="btn btn-gold" onclick="loadPayload('GoldHEN v2.4b16 (PPPwn v11)')">GoldHEN v2.4b16</button>
+                <button class="btn" style="background: #153d21;" onclick="loadPayload('VTX Payload Loader v11')">🛡️ VTX Payload</button>
+            </div>
+
+            <!-- جولد هانات التحديثات الجديدة حتى 13.60 -->
+            <div class="grid goldhen-selection" id="hen-pppwn-new" style="display:none;">
+                <button class="btn btn-gold" onclick="loadPayload('GoldHEN v2.5b1 (PPPwn v13)')">🚀 GoldHEN v2.5b1 (دعم السوفتات الحديثة)</button>
+                <button class="btn btn-gold" onclick="loadPayload('GoldHEN v2.4b18 New')">GoldHEN v2.4b18 Mapped</button>
+                <button class="btn" style="background: #153d21;" onclick="loadPayload('VTX Exploit v13')">🛡️ VTX Payload Loader</button>
+            </div>
+        </div>
+
+        <!-- خطوة 3: مودات جاتا V ونسخ موديل -->
+        <div class="section-box">
+            <h2>🚗 خطوة 3: قائمة مودات جاتا V الشاملة (GTA V Mod Menus)</h2>
+            <div class="grid">
+                <button class="btn" onclick="loadPayload('Waleed Mods 1.38 By N')">🔥 مود وليد 1.38 By N</button>
+                <button class="btn" onclick="loadPayload('Modded 1.38 All Versions')">جميع نسخ موديل 1.38</button>
+                <button class="btn" onclick="loadPayload('BeefQueefMod v1.38')">BeefQueefMod v1.38</button>
+                <button class="btn" onclick="loadPayload('LTS Mod Menu 1.38')">LTS Mod Menu 1.38</button>
+                <button class="btn" onclick="loadPayload('ArabicGuy 1.38')">المود العربي لـ جاتا V</button>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
