@@ -1,9 +1,14 @@
 CACHE MANIFEST
-# PS4IDEA HOST Cache
-# Version 1.5
+# PS4IDEA HOST Cache GoldHEN
+# Version 2.0
 
 CACHE:
 index.html
+int64.js
+rop.js
+kexploit.js
+webkit.js
+payload.js
 
 NETWORK:
 *
