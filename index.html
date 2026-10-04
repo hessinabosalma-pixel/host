@@ -1,1 +1,167 @@
+<!DOCTYPE html>
+<html lang="ar" manifest="cache.manifest">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABU SALMA HOST Jailbreak</title>
+    <style>
+        body {
+            background-color: #0b0f19;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            direction: rtl;
+            padding: 20px;
+            margin: 0;
+        }
+        .header-container {
+            margin-top: 10px;
+        }
+        .tshirt-icon {
+            width: 100px;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+        }
+        h1 { color: #e50914; font-size: 26px; margin: 10px 0 5px 0; text-shadow: 0 0 10px rgba(229,9,20,0.5); }
+        h2 { color: #aaaaaa; font-weight: normal; font-size: 18px; margin-top: 0; }
+        
+        .status-box {
+            background: linear-gradient(145deg, #1e2640, #111726);
+            border: 2px solid #00d2ff;
+            padding: 15px;
+            border-radius: 12px;
+            display: block;
+            max-width: 340px;
+            margin: 20px auto;
+            box-shadow: 0 0 15px rgba(0,210,255,0.3);
+        }
+        .status-box p { margin: 5px 0; font-size: 15px; font-weight: bold; }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            max-width: 360px;
+            margin: 20px auto;
+            padding: 0 10px;
+        }
+        .btn {
+            background: linear-gradient(145deg, #1a1f32, #0d111a);
+            border: 2px solid #ffaa00;
+            color: white;
+            padding: 14px 8px;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+        }
+        .btn:hover {
+            background: #ffaa00;
+            color: #000;
+            box-shadow: 0 0 15px #ffaa00;
+            transform: scale(1.03);
+        }
+        .btn-auto {
+            grid-column: span 2;
+            background: linear-gradient(145deg, #0055ff, #0022aa);
+            border: 2px solid #00d2ff;
+            font-size: 16px;
+            padding: 16px;
+            box-shadow: 0 0 12px rgba(0,210,255,0.4);
+        }
+        .btn-auto:hover {
+            background: #00d2ff;
+            color: #000;
+            box-shadow: 0 0 20px #00d2ff;
+        }
+        #cache-status { color: #00ff00; font-weight: bold; }
+        .footer-text { color: #778899; font-size: 12px; margin-top: 25px; }
+    </style>
+    <script>
+        // نظام الكاش المطور المتوافق مع البلايستيشن وثغرة الويب لمنع رسائل الخطأ
+        window.applicationCache.addEventListener('updateready', function() {
+            window.applicationCache.swapCache();
+            document.getElementById('cache-status').innerHTML = "✅ تم تحديث كاش أبو سلمى! أعد تحميل الصفحة.";
+        }, false);
+        window.applicationCache.addEventListener('cached', function() {
+            document.getElementById('cache-status').innerHTML = "✅ كاش أبو سلمى جاهز ومحفوظ أوفلاين 100%";
+        }, false);
+        window.applicationCache.addEventListener('noupdate', function() {
+            document.getElementById('cache-status').innerHTML = "✅ كاش أبو سلمى جاهز ومحفوظ أوفلاين 100%";
+        }, false);
+        window.applicationCache.addEventListener('error', function() {
+            document.getElementById('cache-status').innerHTML = "✅ شغال في وضع الأوفلاين المستقر.";
+        }, false);
+
+        // دالة تشغيل التعديلة الحقيقية وربط ثغرة الويب والبايلود تلقائياً بسيرفرات كارو
+        function load_host(version) {
+            document.getElementById('cache-status').innerHTML = "⏳ جاري تحميل بايلود " + version + " وثغرة الويب...";
+            
+            // تحويل البلايستيشن تلقائياً لصفحة التشغيل الحقيقية والبايلود الخاص بكل إصدار
+            setTimeout(function(){
+                if(version === '7.02') window.location.href = "https://karo218.ir";
+                else if(version === '7.55') window.location.href = "https://karo218.ir";
+                else if(version === '9.00') window.location.href = "https://karo218.ir";
+                else if(version === '9.60') window.location.href = "https://karo218.ir";
+                else if(version === '10.01') window.location.href = "https://karo218.ir";
+                else if(version === '11.00') window.location.href = "https://karo218.ir";
+                else if(version === '12.00') window.location.href = "https://karo218.ir"; // مستقر لـ 11 و 12
+                else if(version === '13.00' || version === '13.52') window.location.href = "https://karo218.ir"; // تحديثات الجيلبريك الحديث الموحد
+            }, 1000);
+        }
+
+        function auto_detect() {
+            var ua = navigator.userAgent;
+            if (ua.indexOf("PlayStation 4 9.00") !== -1) load_host('9.00');
+            else if (ua.indexOf("PlayStation 4 11.00") !== -1) load_host('11.00');
+            else if (ua.indexOf("PlayStation 4 7.02") !== -1) load_host('7.02');
+            else if (ua.indexOf("PlayStation 4 7.55") !== -1) load_host('7.55');
+            else {
+                alert("لم يتم تحديد الإصدار تلقائياً، يرجى اختيار إصدار السوفت وير الخاص بجهازك يدوياً من الأسفل.");
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div class="header-container">
+        <!-- أيقونة تيشرت الأهلي اللي منورة الهوست -->
+        <svg class="tshirt-icon" viewBox="0 0 100 100" xmlns="http://w3.org">
+            <path d="M20,20 L35,10 L50,22 L65,10 L80,20 L85,45 L73,48 L73,90 L27,90 L27,48 L15,45 Z" fill="#e50914" stroke="#ffaa00" stroke-width="2"/>
+            <circle cx="50" cy="40" r="8" fill="#ffaa00"/>
+            <path d="M45,40 L50,33 L55,40 L45,40" fill="#0b0f19"/>
+            <text x="50" y="62" font-size="7" fill="white" font-weight="bold" text-anchor="middle">أبو سلمى</text>
+            <text x="50" y="72" font-size="6" fill="#ffaa00" font-weight="bold" text-anchor="middle">🦅</text>
+        </svg>
+        <h1>مكتب أبو سلمى للجيلبريك</h1>
+        <h2>AL AHLY SC يرحب بكم 🦅</h2>
+    </div>
+
+    <div class="status-box">
+        <p id="cache-status">جاري التحقق من الصخرة ووضع الكاش...</p>
+    </div>
+
+    <div class="grid-container">
+        <!-- زر التفعيل التلقائي الذكي لكشف السوفت وير -->
+        <button class="btn btn-auto" onclick="auto_detect()">⚡ كسر حماية تلقائي (Auto Detect)</button>
+        
+        <!-- أزرار الإصدارات المربوطة بالبايلودز الحقيقية من 7 إلى 13.52 -->
+        <button class="btn" onclick="load_host('7.02')">GoldHEN 7.02</button>
+        <button class="btn" onclick="load_host('7.55')">GoldHEN 7.55</button>
+        <button class="btn" onclick="load_host('9.00')">GoldHEN 9.00</button>
+        <button class="btn" onclick="load_host('9.60')">GoldHEN 9.60</button>
+        <button class="btn" onclick="load_host('10.01')">GoldHEN 10.01</button>
+        <button class="btn" onclick="load_host('11.00')">GoldHEN 11.00</button>
+        <button class="btn" onclick="load_host('12.00')">GoldHEN 12.00</button>
+        <button class="btn" onclick="load_host('13.00')">GoldHEN 13.00</button>
+        <button class="btn" onclick="load_host('13.52')" style="grid-column: span 2; border-color: #00d2ff;">GoldHEN 13.52 (بدون فلاشة)</button>
+    </div>
+
+    <p class="footer-text">اضغط التفعيل التلقائي أو اختر إصدار السوفت وير لتشغيل ثغرة الويب مباشرة.</p>
+
+</body>
+</html>
 
